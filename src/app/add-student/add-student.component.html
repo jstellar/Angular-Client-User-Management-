@@ -1,0 +1,88 @@
+<div class="card">
+    <div class="card-header">
+        <h3>Add Student</h3>
+    </div>
+
+    <div class="card-body">
+        <form (ngSubmit) = "onSubmit()" #userForm = "ngForm">
+
+<!-- First Name -->
+            <div class="form-group">
+                <input id="firstname" name="firstname" required minlength="3"
+                [(ngModel)] = "student.firstname" placeholder="First Name" 
+                #firstname = "ngModel" class="form-control">
+
+                <div *ngIf = "firstname.invalid && (firstname.touched || firstname.dirty)" class="alert alert-danger">
+                    <div *ngIf = "firstname.errors.required">
+                       First Name is required!
+                    </div>
+                    <div *ngIf = "firstname.errors.minlength">
+                      First Name must be at least 3 characters!
+                    </div>
+                </div>
+            </div>
+<!-- Last Name -->
+            <div class="form-group">
+                <input id="lastname" name="lastname" required minlength="3"
+                [(ngModel)] = "student.lastname" placeholder="Last Name" 
+                #lastname = "ngModel" class="form-control">
+
+                <div *ngIf = "lastname.invalid && (lastname.touched || lastname.dirty)" class = "alert alert-danger" >
+                    <div *ngIf = "lastname.errors.required">
+                        Last Name is required!
+                    </div>
+                    <div *ngIf = "lastname.errors.minlength">
+                        Last Name must be at least 3 characters!
+                    </div>
+                </div>
+            </div>
+<!-- Email -->
+            <div class="form-group">
+                <input id="email" name="email" required minlength="3"
+                [(ngModel)] = "student.email" placeholder="Email" 
+                #email = "ngModel" class="form-control">
+
+                <div *ngIf = "email.invalid && firstname.touched class" class="alert alert-danger">
+                    <div *ngIf = "email.errors.required">
+                        Email is required!
+                    </div>
+                    <div *ngIf = "email.errors.minlength">
+                        Email must be at least 3 characters!
+                    </div>
+                </div>
+            </div>
+<!-- Username -->
+            <div class="form-group">
+                <input id="username" name="username" required minlength="3"
+                [(ngModel)] = "student.username" placeholder="Username" 
+                #username = "ngModel" class="form-control">
+
+                <div *ngIf = "username.invalid && firstname.touched class" class="alert alert-danger">
+                    <div *ngIf = "username.errors.required">
+                       User Name is required!
+                    </div>
+                    <div *ngIf = "username.errors.minlength">
+                        User Name must be at least 3 characters!
+                    </div>
+                </div>
+            </div>
+<!-- password -->
+            <div class="form-group">
+                <input type = "password" name="password" required minlength="3"
+                [(ngModel)] = "student.password" placeholder="Password" 
+                #password = "ngModel" class="form-control">
+
+                <div *ngIf = "password.invalid && firstname.touched class" class="alert alert-danger">
+                    <div *ngIf = "password.errors.required">
+                        Password is required!
+                    </div>
+                    <div *ngIf = "password.errors.minlength">
+                        Password must be at least 3 characters!
+                    </div>
+                </div>
+            </div>
+            <button type="submit" [disabled] = "userForm.form.invalid">Add</button>
+        </form>
+    </div>
+
+</div>
